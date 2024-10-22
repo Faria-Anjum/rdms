@@ -1,0 +1,175 @@
+from playwright.sync_api import expect
+from datetime import datetime
+
+class LoginPage:
+    def __init__(self, page):
+        self.page = page
+        self.url = "https://stage-dms.robi.com.bd/"
+
+    def navigate(self):
+        self.page.goto(self.url, wait_until="load")
+        expect(self.page).to_have_url(self.url+"#/login")
+        expect(self.page.get_by_role("link", name="Robi").first).to_be_visible()
+    
+    def loginCreds(self):
+        expect(self.page.get_by_role("heading", name="Login to Your Account")).to_be_visible()
+
+        expect(self.page.get_by_placeholder("Enter User ID")).to_be_visible()
+        self.page.get_by_placeholder("Enter User ID").click()
+        self.page.get_by_placeholder("Enter User ID").fill("Nazia01")
+        
+        expect(self.page.get_by_placeholder("Password")).to_be_visible()
+        self.page.get_by_placeholder("Password").click()
+        self.page.get_by_placeholder("Password").fill("Autumn@#922")
+        
+        expect(self.page.get_by_role("button", name="Sign In")).to_be_visible()
+        self.page.get_by_role("button", name="Sign In").click()
+        expect(self.page.get_by_text("Signed In Successfully.")).to_be_visible()
+        self.page.get_by_label("close").click()
+
+    def confirmSignIn(self):
+        # expect(self.page.get_by_text("Signed In Successfully.")).to_be_visible()
+        # self.page.get_by_label("close").click()
+        expect(self.page.get_by_text("Welcome")).to_be_visible()
+        expect(self.page.get_by_role("link", name="Dashboard")).to_be_visible()
+
+class Dashboard():
+    def __init__(self, page):
+        self.page = page
+        self.url = "https://stage-dms.robi.com.bd/#/dashboard"
+
+    def findReport(self):
+        expect(self.page.get_by_text("Reports", exact=True)).to_be_visible()
+        self.page.get_by_text("Reports", exact=True).click()
+        
+    def clickReport(self):
+        expect(self.page.get_by_role("link", name=self.title)).to_be_visible()
+        self.page.get_by_role("link", name=self.title).click()
+        expect(self.page.get_by_text((self.title)+" Report")).to_be_visible()
+        expect(self.page).to_have_url(self.url)
+
+    def isDateFilled(self):
+        today = datetime.now()
+        today = f'{today.year}-{today.month}-{today.day}'
+        expect(self.page.locator("input[name=\"fromDate\"]")).to_have_value(today)
+
+    def enterDate(self):
+        expect(self.page.locator("input[name=\"fromDate\"]")).to_be_visible()
+        self.page.locator("input[name=\"fromDate\"]").fill("2024-08-30")
+        
+    def viewReport(self):
+        expect(self.page.get_by_role("button", name="View Report")).to_be_visible()
+        self.page.get_by_role("button", name="View Report").click()
+
+    def noDataFound(self):
+        # expect(self.page.get_by_text("No data found")).to_be_visible()
+        expect(self.page.get_by_text("No data found")).to_be_visible()
+
+    def closeReport(self):
+        self.page.get_by_text("×Close").click()
+
+class SoPayment(Dashboard):
+    def __init__(self, page):
+        self.page = page
+        self.url = "https://stage-dms.robi.com.bd/#/report/so-payment"
+        self.title = "SO Payment"
+
+    def clickSoReport(self):
+        expect(self.page.get_by_role("link", name=self.title)).to_be_visible()
+        self.page.get_by_role("link", name=self.title).click()
+        expect(self.page.get_by_text("Sales Order"+self.title[2:])).to_be_visible()
+
+class SoMisReport(SoPayment):
+    def __init__(self, page):
+        self.page = page
+        self.url = "https://stage-dms.robi.com.bd/#/report/so-mis-report"
+        self.title = "SO MIS Report"
+
+class SimStock(Dashboard):
+    def __init__(self, page):
+        self.page = page
+        self.url = "https://stage-dms.robi.com.bd/#/report/sim-stock"
+        self.title = "Sim Stock"
+
+class ScStock(Dashboard):
+    def __init__(self, page):
+        self.page = page
+        self.url = "https://stage-dms.robi.com.bd/#/report/sc-stock"
+        self.title = "SC Stock"
+
+class ActivationDetails(Dashboard):
+    def __init__(self, page):
+        self.page = page
+        self.url = "https://stage-dms.robi.com.bd/#/report/activation-report"
+        self.title = "Activation Report (Details)"
+
+    #method overriding
+
+    def clickReport(self):
+        expect(self.page.get_by_role("link", name=self.title)).to_be_visible()
+        self.page.get_by_role("link", name=self.title).click()
+        #expect(self.page.get_by_text(self.title)).to_be_visible()
+        expect(self.page).to_have_url(self.url)
+
+    def enterDate(self):
+        expect(self.page.locator("input[name=\"activationDateFrom\"]")).to_be_visible()
+        self.page.locator("input[name=\"activationDateFrom\"]").fill("2024-08-30")
+        expect(self.page.locator("input[name=\"activationDateTo\"]")).to_be_visible()
+        self.page.locator("input[name=\"activationDateTo\"]").fill("2024-10-30")
+    
+
+    # page.get_by_text("Reports", exact=True).click()
+    # page.get_by_role("link", name="SO Payment").click()
+    # page.get_by_role("button", name="View Report").click()
+    # page.get_by_role("link", name="SO MIS Report").click()
+    # page.get_by_role("button", name="View Report").click()
+    # page.get_by_label("close").click()
+    # page.get_by_role("link", name="Sim Stock").click()
+    # page.get_by_role("button", name="View Report").click()
+    # page.get_by_label("close").click()
+    # page.get_by_role("link", name="SC Stock").click()
+    # page.get_by_role("button", name="View Report").click()
+    # page.get_by_label("close").click()
+    # page.get_by_role("link", name="Individual Sim History Report", exact=True).click()
+    # page.get_by_role("link", name="Individual Sim History Report Old").click()
+    # page.get_by_role("link", name="Activation Report (Details)").click()
+    # page.locator("input[name=\"activationDateFrom\"]").fill("2024-10-30")
+    # page.locator("input[name=\"activationDateTo\"]").fill("2024-10-30")
+    # page.get_by_role("button", name="View Report").click()
+    # page.get_by_text("No data found").click()
+    # page.locator("input[name=\"activationDateFrom\"]").fill("2024-08-22")
+    # page.get_by_role("button", name="View Report").click()
+    # page.locator("a").filter(has_text="Individual Sim History Report Old").click()
+    # page.locator("input[name=\"deliveryFromDate\"]").fill("2024-10-22")
+    # page.locator("input[name=\"deliveryToDate\"]").fill("2024-10-22")
+    # page.locator("input[name=\"deliveryFromDate\"]").fill("2024-08-30")
+    # page.locator("div").filter(has_text=re.compile(r"^View Report$")).first.click()
+    # page.get_by_role("button", name="View Report").click()
+    # page.goto("https://stage-dms.robi.com.bd/#/report/incorporate-sim-history-old")
+    # page.goto("https://stage-dms.robi.com.bd/#/report/delivery-report")
+    # page.get_by_role("button", name="View Report").click()
+    # page.locator("input[name=\"deliveryFromDate\"]").fill("2024-10-31")
+    # page.locator("input[name=\"deliveryToDate\"]").fill("2024-10-22")
+    # page.get_by_role("button", name="View Report").click()
+    # page.locator("input[name=\"deliveryFromDate\"]").fill("2024-08-30")
+    # page.get_by_role("button", name="View Report").click()
+    # page.get_by_text("Delivery Report", exact=True).click()
+    # page.get_by_text("×Close").click()
+    # page.get_by_role("button", name="View Report").click()
+    # page.get_by_text("×Close").click()
+    # page.get_by_role("link", name="Real Time Activation (Details)").click()
+    # page.get_by_role("button", name="View Report").click()
+    # page.get_by_text("×Close").click()
+    # page.get_by_role("link", name="Retailer Stock (Details)").click()
+    # page.get_by_role("button", name="View Report").click()
+    # page.locator("input[name=\"liftingFromDate\"]").fill("2024-10-31")
+    # page.locator("input[name=\"liftingToDate\"]").fill("2024-10-22")
+    # page.locator("input[name=\"liftingFromDate\"]").fill("2024-08-31")
+    # page.get_by_role("button", name="View Report").click()
+    # page.get_by_text("×Close").click()
+    # page.get_by_role("link", name="Delivery vs Activation (").click()
+    # page.get_by_role("button", name="View Report").click()
+    # page.get_by_role("link", name="Retailer Stock (Details)").click()
+    # page.get_by_role("link", name="Real Time Activation (Details)").click()
+    # page.get_by_role("link", name="Delivery Report (Details)").click()
+    # page.get_by_role("link", name="Activation Report (Details)").click()

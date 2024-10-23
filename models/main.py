@@ -139,20 +139,19 @@ class RetailerStock(ActivationDetails):
         self.title = "Retailer Stock (Details)"
         self.datefromloc = "input[name=\"liftingFromDate\"]"
         self.datetoloc = "input[name=\"liftingToDate\"]"
+
+class NoActivatedMsisdn(Dashboard):
+    def __init__(self, page):
+        self.page = page
+        self.url = "https://stage-dms.robi.com.bd/#/report/no-activated-msisdn-details"
+        self.title = "No Activated MSISDN (Details)"
+        self.datefromloc = "input[name=\"liftingFromDate\"]"
+        self.datetoloc = "input[name=\"liftingToDate\"]"
     
+
 
 #     page.get_by_role("link", name="Individual Sim History Report", exact=True).click()
-#     
-#     page.get_by_role("link", name="Retailer Stock (Details)").click()
 #     page.get_by_role("link", name="Delivery vs Activation (").click()
-#     page.get_by_role("link", name="No Activated MSISDN (Details)").click()
-#     page.locator("input[name=\"liftingToDate\"]").fill("2024-10-23")
-#     page.locator("input[name=\"liftingFromDate\"]").fill("2024-08-30")
-#     page.get_by_text("No Activated MSISDN (Details) Report").click()
-#     page.get_by_role("button", name="View Report").click()
-#     page.get_by_text("×Close").click()
-
-    
     
     # page.locator("a").filter(has_text="Individual Sim History Report Old").click()
     # page.locator("input[name=\"deliveryFromDate\"]").fill("2024-10-22")
@@ -164,19 +163,5 @@ class RetailerStock(ActivationDetails):
     
     # page.get_by_role("button", name="View Report").click()
     # page.get_by_text("×Close").click()
-    # page.get_by_role("link", name="Real Time Activation (Details)").click()
-    # page.get_by_role("button", name="View Report").click()
-    # page.get_by_text("×Close").click()
-    # page.get_by_role("link", name="Retailer Stock (Details)").click()
-    # page.get_by_role("button", name="View Report").click()
-    # page.locator("input[name=\"liftingFromDate\"]").fill("2024-10-31")
-    # page.locator("input[name=\"liftingToDate\"]").fill("2024-10-22")
-    # page.locator("input[name=\"liftingFromDate\"]").fill("2024-08-31")
-    # page.get_by_role("button", name="View Report").click()
-    # page.get_by_text("×Close").click()
     # page.get_by_role("link", name="Delivery vs Activation (").click()
     # page.get_by_role("button", name="View Report").click()
-    # page.get_by_role("link", name="Retailer Stock (Details)").click()
-    # page.get_by_role("link", name="Real Time Activation (Details)").click()
-    # page.get_by_role("link", name="Delivery Report (Details)").click()
-    # page.get_by_role("link", name="Activation Report (Details)").click()

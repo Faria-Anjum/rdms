@@ -25,7 +25,7 @@ def test_dateScStockReport(page):
 def test_enterDate(page):
     '''User can enter date range for SC Stock Report'''
     sc = ScStock(page)
-    sc.enterDate()
+    sc.enterDateFrom()
     
 def test_viewScStockReport(page):
     '''User views SC Stock Report'''

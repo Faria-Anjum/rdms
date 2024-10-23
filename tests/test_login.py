@@ -9,7 +9,7 @@ def test_enterCredentials(page, context):
     '''User can enter username and password'''
     login = LoginPage(page)
     login.loginCreds()
-    storage=context.storage_state(path='auth.json')
+    #storage=context.storage_state(path='auth.json')
 
 def test_login(page):
     '''User can sign in to dashboard'''

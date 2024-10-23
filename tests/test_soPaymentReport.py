@@ -27,7 +27,7 @@ def test_dateSoPaymentReport(page):
 def test_enterDate(page):
     '''User can enter date range for SO Payment Report'''
     so = SoPayment(page)
-    so.enterDate()
+    so.enterDateFrom()
     
 def test_viewSoPaymentReport(page):
     '''User views SO Payment Report'''

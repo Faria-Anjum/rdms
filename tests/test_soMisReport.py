@@ -27,7 +27,7 @@ def test_dateSoMisReportReport(page):
 def test_enterDate(page):
     '''User can enter date range for SO MIS Report'''
     so = SoMisReport(page)
-    so.enterDate()
+    so.enterDateFrom()
     
 def test_viewSoMisReportReport(page):
     '''User views SO MIS Report'''

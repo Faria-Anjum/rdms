@@ -24,7 +24,7 @@ def test_dateSimStockReport(page):
 def test_enterDate(page):
     '''User can enter date range for Sim Stock Report'''
     sim = SimStock(page)
-    sim.enterDate()
+    sim.enterDateFrom()
     
 def test_viewSimStockReport(page):
     '''User can click to view Sim Stock Report'''

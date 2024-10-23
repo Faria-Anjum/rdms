@@ -3,21 +3,21 @@ from datetime import datetime
 import os
 
 # Get session storage and store as env variable
-@pytest.fixture(scope="module")
-def storage(context):
-    session_storage = page.evaluate("() => JSON.stringify(sessionStorage)")
-    os.environ["SESSION_STORAGE"] = session_storage
+# @pytest.fixture(scope="session")
+# def storage(context):
+#     session_storage = page.evaluate("() => JSON.stringify(sessionStorage)")
+#     os.environ["SESSION_STORAGE"] = session_storage
 
-    # Set session storage in a new context
-    session_storage = os.environ["SESSION_STORAGE"]
-    context.add_init_script("""(storage => {
-    if (window.location.hostname === 'example.com') {
-        const entries = JSON.parse(storage)
-        for (const [key, value] of Object.entries(entries)) {
-        window.sessionStorage.setItem(key, value)
-        }
-    }
-    })('""" + session_storage + "')")
+#     # Set session storage in a new context
+#     session_storage = os.environ["SESSION_STORAGE"]
+#     context.add_init_script("""(storage => {
+#     if (window.location.hostname === 'https://stage-dms.robi.com.bd/#/login') {
+#         const entries = JSON.parse(storage)
+#         for (const [key, value] of Object.entries(entries)) {
+#         window.sessionStorage.setItem(key, value)
+#         }
+#     }
+#     })('""" + session_storage + "')")
 
 
 #all test functions in a test file run on the same browser context

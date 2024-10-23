@@ -53,9 +53,15 @@ class Dashboard():
         today = f'{today.year}-{today.month}-{today.day}'
         expect(self.page.locator("input[name=\"fromDate\"]")).to_have_value(today)
 
-    def enterDate(self):
+    def enterDateFrom(self):
         expect(self.page.locator("input[name=\"fromDate\"]")).to_be_visible()
         self.page.locator("input[name=\"fromDate\"]").fill("2024-08-30")
+
+    def enterDateFromTo(self):
+        expect(self.page.locator(self.datefromloc)).to_be_visible()
+        self.page.locator(self.datefromloc).fill("2024-08-30")
+        expect(self.page.locator(self.datetoloc)).to_be_visible()
+        self.page.locator(self.datetoloc).fill("2024-10-30")
         
     def viewReport(self):
         expect(self.page.get_by_role("button", name="View Report")).to_be_visible()
@@ -102,43 +108,52 @@ class ActivationDetails(Dashboard):
         self.page = page
         self.url = "https://stage-dms.robi.com.bd/#/report/activation-report"
         self.title = "Activation Report (Details)"
+        self.datefromloc = "input[name=\"activationDateFrom\"]"
+        self.datetoloc = "input[name=\"activationDateTo\"]"
 
     #method overriding
-
     def clickReport(self):
         expect(self.page.get_by_role("link", name=self.title)).to_be_visible()
         self.page.get_by_role("link", name=self.title).click()
-        #expect(self.page.get_by_text(self.title)).to_be_visible()
+        expect(self.page.get_by_role("main").get_by_text(self.title)).to_be_visible()
         expect(self.page).to_have_url(self.url)
 
-    def enterDate(self):
-        expect(self.page.locator("input[name=\"activationDateFrom\"]")).to_be_visible()
-        self.page.locator("input[name=\"activationDateFrom\"]").fill("2024-08-30")
-        expect(self.page.locator("input[name=\"activationDateTo\"]")).to_be_visible()
-        self.page.locator("input[name=\"activationDateTo\"]").fill("2024-10-30")
+class DeliveryDetails(ActivationDetails):
+    def __init__(self, page):
+        self.page = page
+        self.url = "https://stage-dms.robi.com.bd/#/report/delivery-report"
+        self.title = "Delivery Report (Details)"
+        self.datefromloc = "input[name=\"deliveryFromDate\"]"
+        self.datetoloc = "input[name=\"deliveryToDate\"]"
+
+class RealTimeActivation(ActivationDetails):
+    def __init__(self, page):
+        self.page = page
+        self.url = "https://stage-dms.robi.com.bd/#/report/real-time-activation"
+        self.title = "Real Time Activation (Details)"
+
+class RetailerStock(ActivationDetails):
+    def __init__(self, page):
+        self.page = page
+        self.url = "https://stage-dms.robi.com.bd/#/report/retailer-stock-details"
+        self.title = "Retailer Stock (Details)"
+        self.datefromloc = "input[name=\"liftingFromDate\"]"
+        self.datetoloc = "input[name=\"liftingToDate\"]"
     
 
-    # page.get_by_text("Reports", exact=True).click()
-    # page.get_by_role("link", name="SO Payment").click()
-    # page.get_by_role("button", name="View Report").click()
-    # page.get_by_role("link", name="SO MIS Report").click()
-    # page.get_by_role("button", name="View Report").click()
-    # page.get_by_label("close").click()
-    # page.get_by_role("link", name="Sim Stock").click()
-    # page.get_by_role("button", name="View Report").click()
-    # page.get_by_label("close").click()
-    # page.get_by_role("link", name="SC Stock").click()
-    # page.get_by_role("button", name="View Report").click()
-    # page.get_by_label("close").click()
-    # page.get_by_role("link", name="Individual Sim History Report", exact=True).click()
-    # page.get_by_role("link", name="Individual Sim History Report Old").click()
-    # page.get_by_role("link", name="Activation Report (Details)").click()
-    # page.locator("input[name=\"activationDateFrom\"]").fill("2024-10-30")
-    # page.locator("input[name=\"activationDateTo\"]").fill("2024-10-30")
-    # page.get_by_role("button", name="View Report").click()
-    # page.get_by_text("No data found").click()
-    # page.locator("input[name=\"activationDateFrom\"]").fill("2024-08-22")
-    # page.get_by_role("button", name="View Report").click()
+#     page.get_by_role("link", name="Individual Sim History Report", exact=True).click()
+#     
+#     page.get_by_role("link", name="Retailer Stock (Details)").click()
+#     page.get_by_role("link", name="Delivery vs Activation (").click()
+#     page.get_by_role("link", name="No Activated MSISDN (Details)").click()
+#     page.locator("input[name=\"liftingToDate\"]").fill("2024-10-23")
+#     page.locator("input[name=\"liftingFromDate\"]").fill("2024-08-30")
+#     page.get_by_text("No Activated MSISDN (Details) Report").click()
+#     page.get_by_role("button", name="View Report").click()
+#     page.get_by_text("×Close").click()
+
+    
+    
     # page.locator("a").filter(has_text="Individual Sim History Report Old").click()
     # page.locator("input[name=\"deliveryFromDate\"]").fill("2024-10-22")
     # page.locator("input[name=\"deliveryToDate\"]").fill("2024-10-22")
@@ -146,15 +161,7 @@ class ActivationDetails(Dashboard):
     # page.locator("div").filter(has_text=re.compile(r"^View Report$")).first.click()
     # page.get_by_role("button", name="View Report").click()
     # page.goto("https://stage-dms.robi.com.bd/#/report/incorporate-sim-history-old")
-    # page.goto("https://stage-dms.robi.com.bd/#/report/delivery-report")
-    # page.get_by_role("button", name="View Report").click()
-    # page.locator("input[name=\"deliveryFromDate\"]").fill("2024-10-31")
-    # page.locator("input[name=\"deliveryToDate\"]").fill("2024-10-22")
-    # page.get_by_role("button", name="View Report").click()
-    # page.locator("input[name=\"deliveryFromDate\"]").fill("2024-08-30")
-    # page.get_by_role("button", name="View Report").click()
-    # page.get_by_text("Delivery Report", exact=True).click()
-    # page.get_by_text("×Close").click()
+    
     # page.get_by_role("button", name="View Report").click()
     # page.get_by_text("×Close").click()
     # page.get_by_role("link", name="Real Time Activation (Details)").click()

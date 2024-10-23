@@ -19,7 +19,7 @@ def test_navActivationReport(page):
 def test_enterDate(page):
     '''User can enter date range for Activation Details Report'''
     activ = ActivationDetails(page)
-    activ.enterDate()
+    activ.enterDateFromTo()
     
 def test_viewActivationReport(page):
     '''User can click to view Activation Details Report'''

@@ -31,8 +31,13 @@ def test_viewScStockReport(page):
     '''User views SC Stock Report'''
     sc = ScStock(page)
     sc.viewReport()
-    
+
 def test_noScStockReport(page):
     '''User receives "No Data Found" error'''
     sc = ScStock(page)
     sc.noDataFound()
+    
+# def test_closeScStockReport(page):
+#     '''SC Stock Report loads successfully'''
+#     sc = ScStock(page)
+#     sc.closeReport()

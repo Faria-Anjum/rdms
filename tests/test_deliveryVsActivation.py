@@ -1,4 +1,5 @@
-from models.main import LoginPage, DeliveryVsActivation
+from models.main import LoginPage
+from models.reports import DeliveryVsActivation
 
 def test_findDeliveryVsActivationReport(page):
     '''User can navigate to Delivery vs Activation Summary Report'''
@@ -13,11 +14,11 @@ def test_navDeliveryVsActivationReport(page):
     delvsactiv = DeliveryVsActivation(page)
     delvsactiv.clickReport()
 
-def test_enterDate(page):
+def test_enterDate(page, today, onemonth):
     '''User can enter date range for Delivery vs Activation Summary Report'''
     delvsactiv = DeliveryVsActivation(page)
-    delvsactiv.enterDateFromTo()
-    delvsactiv.enterSecondDateFromTo()
+    delvsactiv.enterDateFromTo(today, onemonth)
+    delvsactiv.enterSecondDateFromTo(today, onemonth)
     
 def test_viewDeliveryVsActivationReport(page):
     '''User can click to view Delivery vs Activation Summary Report'''

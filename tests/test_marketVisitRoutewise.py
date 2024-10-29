@@ -1,4 +1,5 @@
-from models.main import LoginPage, MarketVisitRoutewise
+from models.main import LoginPage
+from models.reports import MarketVisitRoutewise
 
 def test_findMarketVisitRoutewise(page):
     '''User can navigate to Routewise Market Visit Report'''
@@ -13,10 +14,10 @@ def test_navMarketVisitRoutewise(page):
     marketroute = MarketVisitRoutewise(page)
     marketroute.clickReport()
 
-def test_enterDate(page):
+def test_enterDate(page, today, onemonth):
     '''User can enter date range for Routewise Market Visit Report'''
     marketroute = MarketVisitRoutewise(page)
-    marketroute.enterDateFromTo()
+    marketroute.enterDateFromTo(today, onemonth)
     
 def test_viewMarketVisitRoutewise(page):
     '''User can click to view Routewise Market Visit Report'''

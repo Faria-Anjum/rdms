@@ -1,4 +1,5 @@
-from models.main import LoginPage, SimStock
+from models.main import LoginPage
+from models.reports import SimStock
 
 def test_findSimStockReport(page):
     # context = browser.new_context(storage_state='auth.json')
@@ -16,15 +17,17 @@ def test_navSimStockReport(page):
     sim = SimStock(page)
     sim.clickReport()
     
-def test_dateSimStockReport(page):
+def test_dateSimStockReport(page, today):
+    print("yes date")
     '''Date fields contain today's date in Sim Stock Report'''
     sim = SimStock(page)
-    sim.isDateFilled()
+    sim.isDateFilled(today)
 
-def test_enterDate(page):
+def test_enterDate(page, twomonths):
     '''User can enter date range for Sim Stock Report'''
+    print("yes range")
     sim = SimStock(page)
-    sim.enterDateFrom()
+    sim.enterDateFrom(twomonths)
     
 def test_viewSimStockReport(page):
     '''User can click to view Sim Stock Report'''

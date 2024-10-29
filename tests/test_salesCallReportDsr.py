@@ -1,4 +1,5 @@
-from models.main import LoginPage, SalesCallDSR
+from models.main import LoginPage
+from models.reports import SalesCallDSR
 
 def test_findSalesCallReport(page):
 
@@ -14,10 +15,10 @@ def test_navSalesCallReport(page):
     dsr = SalesCallDSR(page)
     dsr.clickReport()
 
-def test_enterDate(page):
+def test_enterDate(page, today, onemonth):
     '''User can enter date range for Sales Call Report (DSR)'''
     dsr = SalesCallDSR(page)
-    dsr.enterDateFromTo()
+    dsr.enterDateFromTo(today, onemonth)
     
 def test_viewSalesCallReport(page):
     '''User can click to view Sales Call Report (DSR)'''

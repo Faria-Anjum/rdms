@@ -1,4 +1,5 @@
-from models.main import LoginPage, NoActivatedMsisdn
+from models.main import LoginPage
+from models.reports import NoActivatedMsisdn
 
 def test_findNoActivatedMsisdn(page):
     '''User can navigate to No Activated MSISDN Details Report'''
@@ -13,10 +14,10 @@ def test_navNoActivatedMsisdn(page):
     activeMsisdn = NoActivatedMsisdn(page)
     activeMsisdn.clickReport()
 
-def test_enterDate(page):
+def test_enterDate(page, today, twomonths):
     '''User can enter date range for No Activated MSISDN Details Report'''
     activeMsisdn = NoActivatedMsisdn(page)
-    activeMsisdn.enterDateFromTo()
+    activeMsisdn.enterDateFromTo(today, twomonths)
     
 def test_viewNoActivatedMsisdn(page):
     '''User can click to view No Activated MSISDN Details Report'''

@@ -1,4 +1,5 @@
-from models.main import LoginPage, DeliveryDetails
+from models.main import LoginPage
+from models.reports import DeliveryDetails
 
 def test_findDeliveryReport(page):
     '''User can navigate to Delivery Report Details'''
@@ -13,10 +14,10 @@ def test_navDeliveryReport(page):
     delivery = DeliveryDetails(page)
     delivery.clickReport()
 
-def test_enterDate(page):
+def test_enterDate(page, today, onemonth):
     '''User can enter date range for Delivery Report Details'''
     delivery = DeliveryDetails(page)
-    delivery.enterDateFromTo()
+    delivery.enterDateFromTo(today, onemonth)
     
 def test_viewDeliveryReport(page):
     '''User can click to view Delivery Report Details'''

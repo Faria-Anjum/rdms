@@ -1,4 +1,5 @@
-from models.main import LoginPage, PendingSCODReport
+from models.main import LoginPage
+from models.reports import PendingSCODReport
 
 def test_findPendingSCODReport(page):
 
@@ -14,10 +15,10 @@ def test_navPendingSCODReport(page):
     od = PendingSCODReport(page)
     od.clickReport()
 
-def test_enterDate(page):
+def test_enterDate(page, today, onemonth):
     '''User can enter date range for Pending SC OD Report'''
     od = PendingSCODReport(page)
-    od.enterDateFromTo()
+    od.enterDateFromTo(today, onemonth)
     
 def test_viewPendingSCODReport(page):
     '''User can click to view Pending SC OD Report'''

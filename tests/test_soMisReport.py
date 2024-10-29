@@ -1,9 +1,10 @@
-from models.main import LoginPage, SoMisReport
+from models.main import LoginPage
+from models.reports import SoMisReport
 import pytest
 
 xfail = pytest.mark.xfail
 
-def test_findSoMisReportReport(page):
+def test_findSoMisReport(page):
     # context = browser.new_context(storage_state='auth.json')
     # page = context.new_page()
 
@@ -14,28 +15,28 @@ def test_findSoMisReportReport(page):
     login.loginCreds()
     so.findReport()
 
-def test_navSoMisReportReport(page):
+def test_navSoMisReport(page):
     '''User can navigate to SO MIS report and select filters'''
     so = SoMisReport(page)
     so.clickSoReport()
     
-def test_dateSoMisReportReport(page):
+def test_dateSoMisReport(page, today):
     '''Date fields contain today's date in SO MIS Report'''
     so = SoMisReport(page)
-    so.isDateFilled()
+    so.isDateFilled(today)
 
-def test_enterDate(page):
+def test_enterDate(page, onemonth):
     '''User can enter date range for SO MIS Report'''
     so = SoMisReport(page)
-    so.enterDateFrom()
+    so.enterDateFrom(onemonth)
     
-def test_viewSoMisReportReport(page):
+def test_viewSoMisReport(page):
     '''User views SO MIS Report'''
     so = SoMisReport(page)
     so.viewReport()
     
 @xfail
-def test_noSoMisReportReport(page):
+def test_noSoMisReport(page):
     '''User receives "No Data Found" error'''
     so = SoMisReport(page)
     so.noDataFound()

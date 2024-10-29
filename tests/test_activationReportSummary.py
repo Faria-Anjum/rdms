@@ -1,4 +1,5 @@
-from models.main import LoginPage, ActivationSummary
+from models.main import LoginPage
+from models.reports import ActivationSummary
 
 def test_findActivationReport(page):
     # context = browser.new_context(storage_state='auth.json')
@@ -16,10 +17,10 @@ def test_navActivationReport(page):
     activ = ActivationSummary(page)
     activ.clickReport()
 
-def test_enterDate(page):
+def test_enterDate(page, today, onemonth):
     '''User can enter date range for Activation Summary Report'''
     activ = ActivationSummary(page)
-    activ.enterDateFromTo()
+    activ.enterDateFromTo(today, onemonth)
     
 def test_viewActivationReport(page):
     '''User can click to view Activation Summary Report'''

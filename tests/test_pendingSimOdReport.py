@@ -1,4 +1,5 @@
-from models.main import LoginPage, PendingSimODReport
+from models.main import LoginPage
+from models.reports import PendingSimODReport
 
 def test_findPendingSimODReport(page):
 
@@ -14,10 +15,10 @@ def test_navPendingSimODReport(page):
     od = PendingSimODReport(page)
     od.clickReport()
 
-def test_enterDate(page):
+def test_enterDate(page, today, onemonth):
     '''User can enter date range for Pending Sim OD Report'''
     od = PendingSimODReport(page)
-    od.enterDateFromTo()
+    od.enterDateFromTo(today, onemonth)
     
 def test_viewPendingSimODReport(page):
     '''User can click to view Pending Sim OD Report'''

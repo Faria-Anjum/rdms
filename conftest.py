@@ -74,6 +74,22 @@ def twomonths():
     return twomonths
 
 @pytest.fixture(scope="session")
+def twoyears():
+    today = datetime.now()
+    
+    year = today.year-2
+    month = today.month
+    day = today.day
+
+    if len(str(today.day))==1:
+        day = "0"+str(day)
+    if len(str(today.month))==1:
+        month = "0"+str(month)
+
+    twoyears = f'{year}-{month}-{day}'
+    return twoyears
+
+@pytest.fixture(scope="session")
 def browser_context_args(browser_context_args):
     return {
         **browser_context_args,

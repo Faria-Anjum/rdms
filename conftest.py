@@ -2,6 +2,16 @@ import pytest
 from datetime import datetime
 import os
 
+@pytest.fixture(scope="session")
+def browser_context_args(browser_context_args):
+    return {
+        **browser_context_args,
+        "viewport": {
+            "width": 1920,
+            "height": 1080,
+        }
+    }
+
 # Get session storage and store as env variable
 # @pytest.fixture(scope="session")
 # def storage(context):

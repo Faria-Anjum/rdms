@@ -1,4 +1,5 @@
-from models.main import LoginPage, PendingSimODReport
+from models.main import LoginPage
+from models.reports import PendingSimODReport
 
 def test_findPendingSimODReport(page):
 

@@ -1,4 +1,5 @@
-from models.main import LoginPage, SoPayment
+from models.main import LoginPage
+from models.reports import SoPayment
 import pytest
 
 xfail = pytest.mark.xfail

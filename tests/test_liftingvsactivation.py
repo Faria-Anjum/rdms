@@ -1,6 +1,7 @@
-from models.main import LoginPage, LiftingVsActivation
+from models.main import LoginPage
+from models.reports import LiftingVsActivation
 
-def test_findDeliveryVsActivationReport(page):
+def test_findLiftingVsActivationReport(page):
     '''User can navigate to Lifting vs Activation Summary Report'''
     liftvsactiv = LiftingVsActivation(page)
     login = LoginPage(page)
@@ -8,7 +9,7 @@ def test_findDeliveryVsActivationReport(page):
     login.loginCreds()
     liftvsactiv.findReport()
     
-def test_navDeliveryVsActivationReport(page):
+def test_navLiftingVsActivationReport(page):
     '''User can navigate to Lifting vs Activation Summary Report and select filters'''
     liftvsactiv = LiftingVsActivation(page)
     liftvsactiv.clickReport()
@@ -19,12 +20,12 @@ def test_enterDate(page):
     liftvsactiv.enterDateFromTo()
     liftvsactiv.enterSecondDateFromTo()
     
-def test_viewDeliveryVsActivationReport(page):
+def test_viewLiftingVsActivationReport(page):
     '''User can click to view Lifting vs Activation Summary Report'''
     liftvsactiv = LiftingVsActivation(page)
     liftvsactiv.viewReport()
 
-def test_closeDeliveryVsActivationReport(page):
+def test_closeLiftingVsActivationReport(page):
     '''Lifting vs Activation Summary Report loads sucessfully'''
     liftvsactiv = LiftingVsActivation(page)
     liftvsactiv.closeReport()

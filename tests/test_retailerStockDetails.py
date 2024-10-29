@@ -1,4 +1,5 @@
-from models.main import LoginPage, RetailerStock
+from models.main import LoginPage
+from models.reports import RetailerStock
 
 def test_findRetailerStock(page):
     '''User can navigate to Retailer Stock Details'''

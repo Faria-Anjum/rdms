@@ -1,4 +1,5 @@
-from models.main import LoginPage, SimStock
+from models.main import LoginPage
+from models.reports import SimStock
 
 def test_findSimStockReport(page):
     # context = browser.new_context(storage_state='auth.json')

@@ -1,4 +1,5 @@
-from models.main import LoginPage, NoActivatedMsisdn
+from models.main import LoginPage
+from models.reports import NoActivatedMsisdn
 
 def test_findNoActivatedMsisdn(page):
     '''User can navigate to No Activated MSISDN Details Report'''

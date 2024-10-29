@@ -1,4 +1,5 @@
-from models.main import LoginPage, SalesCallDSR
+from models.main import LoginPage
+from models.reports import SalesCallDSR
 
 def test_findSalesCallReport(page):
 

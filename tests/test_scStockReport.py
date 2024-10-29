@@ -1,4 +1,5 @@
-from models.main import LoginPage, ScStock
+from models.main import LoginPage
+from models.reports import ScStock
 import pytest
 
 def test_findScStockReport(page):

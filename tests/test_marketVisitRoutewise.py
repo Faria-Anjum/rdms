@@ -1,4 +1,5 @@
-from models.main import LoginPage, MarketVisitRoutewise
+from models.main import LoginPage
+from models.reports import MarketVisitRoutewise
 
 def test_findMarketVisitRoutewise(page):
     '''User can navigate to Routewise Market Visit Report'''

@@ -1,4 +1,5 @@
-from models.main import LoginPage, SalesCallTransac
+from models.main import LoginPage
+from models.reports import SalesCallTransac
 
 def test_findSalesCallReport(page):
     '''User can navigate to Sales Call Report (Transaction)'''

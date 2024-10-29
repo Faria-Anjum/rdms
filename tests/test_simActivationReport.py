@@ -1,4 +1,5 @@
-from models.main import LoginPage, SimActivationReport
+from models.main import LoginPage
+from models.reports import SimActivationReport
 
 def test_findSimActivationReport(page):
 

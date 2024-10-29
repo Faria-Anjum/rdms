@@ -1,4 +1,5 @@
-from models.main import LoginPage, PendingSCODReport
+from models.main import LoginPage
+from models.reports import PendingSCODReport
 
 def test_findPendingSCODReport(page):
 

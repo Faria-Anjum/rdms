@@ -1,4 +1,5 @@
-from models.main import LoginPage, BPPerformance
+from models.main import LoginPage
+from models.reports import BPPerformance
 
 def test_findBpPerformanceReport(page):
 

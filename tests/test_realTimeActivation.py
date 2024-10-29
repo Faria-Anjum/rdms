@@ -1,4 +1,5 @@
-from models.main import LoginPage, RealTimeActivation
+from models.main import LoginPage
+from models.reports import RealTimeActivation
 
 def test_findRealTimeActivationReport(page):
     '''User can navigate to Real Time Activation Report Details'''

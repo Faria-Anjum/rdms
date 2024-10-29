@@ -1,4 +1,5 @@
-from models.main import LoginPage, ActivationSummary
+from models.main import LoginPage
+from models.reports import ActivationSummary
 
 def test_findActivationReport(page):
     # context = browser.new_context(storage_state='auth.json')

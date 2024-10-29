@@ -1,4 +1,5 @@
-from models.main import LoginPage, DeliveryVsActivation
+from models.main import LoginPage
+from models.reports import DeliveryVsActivation
 
 def test_findDeliveryVsActivationReport(page):
     '''User can navigate to Delivery vs Activation Summary Report'''

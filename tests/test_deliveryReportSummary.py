@@ -1,4 +1,5 @@
-from models.main import LoginPage, DeliverySummary
+from models.main import LoginPage
+from models.reports import DeliverySummary
 
 def test_findDeliveryReport(page):
     '''User can navigate to Delivery Report Summary'''

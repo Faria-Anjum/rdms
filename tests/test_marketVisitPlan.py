@@ -1,4 +1,5 @@
-from models.main import LoginPage, MarketVisitPlan
+from models.main import LoginPage
+from models.reports import MarketVisitPlan
 
 def test_findMarketVisitPlan(page):
     '''User can navigate to Market Visit Plan Report'''

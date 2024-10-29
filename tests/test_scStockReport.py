@@ -18,15 +18,15 @@ def test_navScStockReport(page):
     sc = ScStock(page)
     sc.clickReport()
     
-def test_dateScStockReport(page):
+def test_dateScStockReport(page, today):
     '''Date fields contain today's date in SC Stock Report'''
     sc = ScStock(page)
-    sc.isDateFilled()
+    sc.isDateFilled(today)
 
-def test_enterDate(page):
+def test_enterDate(page, onemonth):
     '''User can enter date range for SC Stock Report'''
     sc = ScStock(page)
-    sc.enterDateFrom()
+    sc.enterDateFrom(onemonth)
     
 def test_viewScStockReport(page):
     '''User views SC Stock Report'''

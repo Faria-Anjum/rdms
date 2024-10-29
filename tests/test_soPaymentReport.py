@@ -20,15 +20,15 @@ def test_navSoPaymentReport(page):
     so = SoPayment(page)
     so.clickSoReport()
     
-def test_dateSoPaymentReport(page):
+def test_dateSoPaymentReport(page, today):
     '''Date fields contain today's date in SO Payment Report'''
     so = SoPayment(page)
-    so.isDateFilled()
+    so.isDateFilled(today)
 
-def test_enterDate(page):
+def test_enterDate(page, onemonth):
     '''User can enter date range for SO Payment Report'''
     so = SoPayment(page)
-    so.enterDateFrom()
+    so.enterDateFrom(onemonth)
     
 def test_viewSoPaymentReport(page):
     '''User views SO Payment Report'''

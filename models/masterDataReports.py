@@ -52,7 +52,7 @@ class RetailerMasterData(SimActivationReport):
     def clickReport(self):
         return Dashboard.clickReport(self)
 
-class RetailerRegRequest(Dashboard):
+class RetailerRegRequest(SimActivationReport):
     def __init__(self, page):
         self.page = page
         self.url = "https://stage-dms.robi.com.bd/#/retailer/retailer-registration-request"
@@ -63,8 +63,11 @@ class RetailerRegRequest(Dashboard):
         self.page.get_by_role("link", name=self.title).click()
         expect(self.page.get_by_text("Retailer Registration Request Report")).to_be_visible()
 
-class RetailerModificationRequest(Dashboard):
+class RetailerModificationRequest(SimActivationReport):
     def __init__(self, page):
         self.page = page
         self.url = "https://stage-dms.robi.com.bd/#/report/retailer-modification-request"
         self.title = "Retailer Modification Request"
+
+    def clickReport(self):
+        return Dashboard.clickReport(self)

@@ -14,10 +14,10 @@ def test_navDeliveryReport(page):
     delivery = DeliverySummary(page)
     delivery.clickReport()
 
-def test_enterDate(page):
+def test_enterDate(page, today, onemonth):
     '''User can enter date range for Delivery Report Summary'''
     delivery = DeliverySummary(page)
-    delivery.enterDateFromTo()
+    delivery.enterDateFromTo(today, onemonth)
     
 def test_viewDeliveryReport(page):
     '''User can click to view Delivery Report Summary'''

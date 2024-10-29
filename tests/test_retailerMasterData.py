@@ -14,10 +14,10 @@ def test_navRetailerMasterData(page):
     retailermaster = RetailerMasterData(page)
     retailermaster.clickReport()
 
-def test_enterDate(page):
+def test_enterDate(page, today, onemonth):
     '''User can enter date range for Retailer Master Data Report'''
     retailermaster = RetailerMasterData(page)
-    retailermaster.enterDateFromTo()
+    retailermaster.enterDateFromTo(today, onemonth)
     
 def test_viewRetailerMasterData(page):
     '''User can click to view Retailer Master Data Report'''

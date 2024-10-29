@@ -52,33 +52,25 @@ class Dashboard():
         expect(self.page.get_by_text((self.title)+" Report")).to_be_visible()
         expect(self.page).to_have_url(self.url)
 
-    def isDateFilled(self):
-        today = datetime.now()
-        today = f'{today.year}-{today.month}-{today.day}'
+    def isDateFilled(self, today):
         expect(self.page.locator("input[name=\"fromDate\"]")).to_have_value(today)
 
-    def enterDateFrom(self):
-        today = datetime.now()
-        today = f'{today.year}-{today.month}-{today.day}'
+    def enterDateFrom(self, month):
         expect(self.page.locator("input[name=\"fromDate\"]")).to_be_visible()
-        self.page.locator("input[name=\"fromDate\"]").fill(today)
+        self.page.locator("input[name=\"fromDate\"]").fill(month)
 
-    def enterDateFromTo(self):
-        today = datetime.now()
-        today = f'{today.year}-{today.month}-{today.day}'
+    def enterDateFromTo(self, today, month):
         expect(self.page.locator(self.datefromloc)).to_be_visible()
-        self.page.locator(self.datefromloc).fill("2024-10-01")
+        self.page.locator(self.datefromloc).fill(month)
         expect(self.page.locator(self.datetoloc)).to_be_visible()
         self.page.locator(self.datetoloc).fill(today)
 
-    def enterSecondDateFromTo(self):
-        today = datetime.now()
-        today = f'{today.year}-{today.month}-{today.day}'
+    def enterSecondDateFromTo(self, today, month):
         expect(self.page.locator(self.seconddatefrom)).to_be_visible()
-        self.page.locator(self.seconddatefrom).fill("2024-10-01")
+        self.page.locator(self.seconddatefrom).fill(month)
         expect(self.page.locator(self.seconddateto)).to_be_visible()
         self.page.locator(self.seconddateto).fill(today)
-        
+
     def viewReport(self):
         expect(self.page.get_by_role("button", name="View Report")).to_be_visible()
         self.page.get_by_role("button", name="View Report").click()

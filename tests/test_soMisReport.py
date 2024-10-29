@@ -20,15 +20,15 @@ def test_navSoMisReport(page):
     so = SoMisReport(page)
     so.clickSoReport()
     
-def test_dateSoMisReport(page):
+def test_dateSoMisReport(page, today):
     '''Date fields contain today's date in SO MIS Report'''
     so = SoMisReport(page)
-    so.isDateFilled()
+    so.isDateFilled(today)
 
-def test_enterDate(page):
+def test_enterDate(page, onemonth):
     '''User can enter date range for SO MIS Report'''
     so = SoMisReport(page)
-    so.enterDateFrom()
+    so.enterDateFrom(onemonth)
     
 def test_viewSoMisReport(page):
     '''User views SO MIS Report'''

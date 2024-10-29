@@ -14,10 +14,10 @@ def test_navRetailerStock(page):
     retail = RetailerStock(page)
     retail.clickReport()
 
-def test_enterDate(page):
+def test_enterDate(page, today, twomonths):
     '''User can enter date range for Retailer Stock Details'''
     retail = RetailerStock(page)
-    retail.enterDateFromTo()
+    retail.enterDateFromTo(today, twomonths)
     
 def test_viewRetailerStock(page):
     '''User can click to view Retailer Stock Details'''

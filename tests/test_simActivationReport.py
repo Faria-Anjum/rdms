@@ -15,10 +15,10 @@ def test_navSimActivationReport(page):
     simactiv = SimActivationReport(page)
     simactiv.clickReport()
 
-def test_enterDate(page):
+def test_enterDate(page, today, onemonth):
     '''User can enter date range for Sim Activation Report'''
     simactiv = SimActivationReport(page)
-    simactiv.enterDateFromTo()
+    simactiv.enterDateFromTo(today, onemonth)
     
 def test_viewSimActivationReport(page):
     '''User can click to view Sim Activation Report'''

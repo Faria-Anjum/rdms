@@ -14,11 +14,11 @@ def test_navLiftingVsActivationReport(page):
     liftvsactiv = LiftingVsActivation(page)
     liftvsactiv.clickReport()
 
-def test_enterDate(page):
+def test_enterDate(page, today, twomonths):
     '''User can enter date range for Lifting vs Activation Summary Report'''
     liftvsactiv = LiftingVsActivation(page)
-    liftvsactiv.enterDateFromTo()
-    liftvsactiv.enterSecondDateFromTo()
+    liftvsactiv.enterDateFromTo(today, twomonths)
+    liftvsactiv.enterSecondDateFromTo(today, twomonths)
     
 def test_viewLiftingVsActivationReport(page):
     '''User can click to view Lifting vs Activation Summary Report'''

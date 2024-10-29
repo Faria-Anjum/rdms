@@ -14,10 +14,10 @@ def test_navMarketVisitPlan(page):
     marketplan = MarketVisitPlan(page)
     marketplan.clickReport()
 
-def test_enterDate(page):
+def test_enterDate(page, today, onemonth):
     '''User can enter date range for Market Visit Plan Report'''
     marketplan = MarketVisitPlan(page)
-    marketplan.enterDateFromTo()
+    marketplan.enterDateFromTo(today, onemonth)
     
 def test_viewMarketVisitPlan(page):
     '''User can click to view Market Visit Plan Report'''

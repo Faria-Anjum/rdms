@@ -14,10 +14,10 @@ def test_navRetailerModificationRequest(page):
     retailermod = RetailerModificationRequest(page)
     retailermod.clickReport()
 
-def test_enterDate(page):
+def test_enterDate(page, today, onemonth):
     '''User can enter date range for Retailer Modification Request Report'''
     retailermod = RetailerModificationRequest(page)
-    retailermod.enterDateFrom()
+    retailermod.enterDateFromTo(today, onemonth)
     
 def test_viewRetailerModificationRequest(page):
     '''User can click to view Retailer Modification Request Report'''

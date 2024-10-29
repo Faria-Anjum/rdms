@@ -14,10 +14,10 @@ def test_navMarketVisitRoutewise(page):
     marketroute = MarketVisitRoutewise(page)
     marketroute.clickReport()
 
-def test_enterDate(page):
+def test_enterDate(page, today, onemonth):
     '''User can enter date range for Routewise Market Visit Report'''
     marketroute = MarketVisitRoutewise(page)
-    marketroute.enterDateFromTo()
+    marketroute.enterDateFromTo(today, onemonth)
     
 def test_viewMarketVisitRoutewise(page):
     '''User can click to view Routewise Market Visit Report'''

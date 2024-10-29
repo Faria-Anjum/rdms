@@ -17,10 +17,10 @@ def test_navActivationReport(page):
     activ = ActivationDetails(page)
     activ.clickReport()
 
-def test_enterDate(page):
+def test_enterDate(page, today, onemonth):
     '''User can enter date range for Activation Details Report'''
     activ = ActivationDetails(page)
-    activ.enterDateFromTo()
+    activ.enterDateFromTo(today, onemonth)
     
 def test_viewActivationReport(page):
     '''User can click to view Activation Details Report'''

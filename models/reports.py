@@ -1,6 +1,5 @@
 from playwright.sync_api import expect
 from models.main import Dashboard
-from datetime import datetime
 
 class SoPayment(Dashboard):
     def __init__(self, page):
@@ -160,11 +159,9 @@ class SimActivationReport(ActivationDetails):
         self.url = "https://stage-dms.robi.com.bd/#/report/sim-activation"
         self.title = "Sim Activation Report"
 
-    def enterDateFromTo(self):
-        today = datetime.now()
-        today = f'{today.year}-{today.month}-{today.day}'
+    def enterDateFromTo(self, today, month):
         expect(self.page.locator("input[name=\"fromDate\"]")).to_be_visible()
-        self.page.locator("input[name=\"fromDate\"]").fill("2024-10-01")
+        self.page.locator("input[name=\"fromDate\"]").fill(month)
         expect(self.page.locator("input[name=\"toDate\"]")).to_be_visible()
         self.page.locator("input[name=\"toDate\"]").fill(today)
 
@@ -186,10 +183,8 @@ class SalesCallTransac(SalesCallDSR):
         self.url = "https://stage-dms.robi.com.bd/#/report/sales-call-by-transaction"
         self.title = "Sales Call (By Transaction)"
 
-    def enterDateFromTo(self):
-        today = datetime.now()
-        today = f'{today.year}-{today.month}-{today.day}'
-        self.page.get_by_role("textbox").first.fill("2024-10-01")
+    def enterDateFromTo(self, today, month):
+        self.page.get_by_role("textbox").first.fill(month)
         self.page.get_by_role("textbox").nth(1).fill(today)
 
 class MarketVisitPlan(SimActivationReport):

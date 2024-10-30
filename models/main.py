@@ -45,6 +45,10 @@ class Dashboard():
     def findMasterDataReport(self):
         expect(self.page.get_by_text("Master Data Reports")).to_be_visible()
         self.page.get_by_text("Master Data Reports").click()
+
+    def findDeviceReports(self):
+        expect(self.page.get_by_text("Device Reports")).to_be_visible()
+        self.page.get_by_text("Device Reports").click()
         
     def clickReport(self):
         expect(self.page.get_by_role("link", name=self.title)).to_be_visible()

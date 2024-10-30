@@ -7,7 +7,7 @@ def test_findRCPendingDeviceOD(page):
     login = LoginPage(page)
     login.navigate()
     login.loginCreds()
-    rcpendingod.findDeviceReport()
+    rcpendingod.findDeviceReports()
     
 def test_navRCPendingDeviceOD(page):
     '''User can navigate to RC Pending Device OD Report and select filters'''

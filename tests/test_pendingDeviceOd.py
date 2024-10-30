@@ -7,7 +7,7 @@ def test_findPendingDeviceOD(page):
     login = LoginPage(page)
     login.navigate()
     login.loginCreds()
-    pendingod.findDeviceReport()
+    pendingod.findDeviceReports()
     
 def test_navPendingDeviceOD(page):
     '''User can navigate to Pending Device OD Report and select filters'''

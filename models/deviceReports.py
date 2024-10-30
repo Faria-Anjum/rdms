@@ -36,6 +36,29 @@ class FaultyDevice(SimActivationReport):
     def clickReport(self):
         return Dashboard.clickReport(self)
     
+class IndividualDeviceTransactionHistory(SimActivationReport):
+    def __init__(self, page):
+        self.page = page
+        self.url = "https://stage-dms.robi.com.bd/#/report/individual-device-transaction-history"
+        self.title = "Individual Device Transaction History"
+
+    def clickReport(self):
+        return Dashboard.clickReport(self)
+    
+    def fillTextbox(self):
+        self.page.get_by_role("textbox").click()
+        self.page.get_by_role("textbox").fill("353664620337838")
+    
+
+    # page.get_by_text("SerialNumber / MSISDNType *Serial NumberMSISDNIs Live ?Bulk Search File Upload").click(button="right")
+    # page.goto("https://stage-dms.robi.com.bd/#/report/device-transaction")
+    # page.goto("https://stage-dms.robi.com.bd/#/report/individual-device-transaction")
+    # page.goto("https://stage-dms.robi.com.bd/#/report/individual-device-transaction-history")
+    # page.get_by_role("textbox").click()
+    # page.get_by_role("textbox").fill("353664620337838")
+    # page.get_by_role("button", name="View Report").click()
+    # page.get_by_text("×Close").click()
+    
 class DeviceTransaction(SimActivationReport):
     def __init__(self, page):
         self.page = page
@@ -59,7 +82,7 @@ class DeviceLifetimeTracking(SimActivationReport):
         self.page.get_by_role("link", name=self.title).click()
         expect(self.page.get_by_text("Device Lifetime Tracking Report")).to_be_visible()
 
-class DeviceStatus(SimActivationReport): #twoyears
+class DeviceStatus(SimActivationReport):
     def __init__(self, page):
         self.page = page
         self.url = "https://stage-dms.robi.com.bd/#/report/device-status"
@@ -74,7 +97,7 @@ class CentralInventoryStock(Dashboard):
         self.url = "https://stage-dms.robi.com.bd/#/report/central-inventory-stock"
         self.title = "Central Inventory Stock"
 
-class DeviceRegistrationReport(ActivationDetails): #onemonth
+class DeviceRegistrationReport(ActivationDetails):
     def __init__(self, page):
         self.page = page
         self.url = "https://stage-dms.robi.com.bd/#/report/device-registration"

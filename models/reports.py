@@ -1,5 +1,6 @@
 from playwright.sync_api import expect
 from models.main import Dashboard
+import re
 
 class SoPayment(Dashboard):
     def __init__(self, page):
@@ -29,6 +30,42 @@ class ScStock(Dashboard):
         self.page = page
         self.url = "https://stage-dms.robi.com.bd/#/report/sc-stock"
         self.title = "SC Stock"
+
+class IndividualSimHistory(Dashboard):
+    def __init__(self, page):
+        self.page = page
+        self.url = "https://stage-dms.robi.com.bd/#/report/incorporate-sim-history"
+        self.title = "Individual Sim History Report"
+        self.input = "input[name=\"serialNumberOrMSISDN\"]"
+
+    def clickReport(self):
+        expect(self.page.get_by_role("link", name=self.title, exact=True)).to_be_visible()
+        self.page.get_by_role("link", name=self.title, exact=True).click()
+        expect(self.page.get_by_text("Individual Sim History", exact=True)).to_be_visible()
+
+    def enterText(self):
+        self.page.locator("input[name=\"serialNumberOrMSISDN\"]").click()
+        self.page.locator("input[name=\"serialNumberOrMSISDN\"]").fill("1603639313")
+
+    def selectMSISDN(self):
+        self.page.locator("div").filter(has_text=re.compile(r"^MSISDN$")).click()
+        self.page.get_by_label("MSISDN").check()
+        
+    def viewReport(self):
+        expect(self.page.get_by_role("button", name="View Individual Sim History")).to_be_visible()
+        self.page.get_by_role("button", name="View Individual Sim History").click()
+
+class IndividualSimHistoryOld(IndividualSimHistory):
+    def __init__(self, page):
+        self.page = page
+        self.url = "https://stage-dms.robi.com.bd/#/report/incorporate-sim-history-old"
+        self.title = "Individual Sim History Report Old"
+        self.input = "input[name=\"serialNumberOrMSISDN\"]"
+
+    def clickReport(self):
+        expect(self.page.get_by_role("link", name=self.title)).to_be_visible()
+        self.page.get_by_role("link", name=self.title).click()
+        expect(self.page.get_by_text("Individual Sim History Old", exact=True)).to_be_visible()
 
 class ActivationDetails(Dashboard):
     def __init__(self, page):

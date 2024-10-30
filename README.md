@@ -25,13 +25,23 @@
   + BP Performance
 
 #### Master Data Reports:
-  + User Managemetnt
+  + User Management
   + Distribution Information
   + Product Master Data
   + Dsr Master Data
   + Retailer Master Data
   + Retailer Registration Request
   + Retailer Modification Request
+
+#### Device Reports:
+  + RC Pending Device OD
+  + Pending Device OD
+  + Faulty Device
+  + Device Transaction
+  + Device Lifetime Tracking
+  + Device Status
+  + Central Inventory Stock
+  + Device Registration Report
 
 ## Requires installation of:
 - python 3.12

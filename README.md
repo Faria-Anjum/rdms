@@ -11,7 +11,7 @@
   + Real-time Activation Report
   + Retailer Stock
   + Delivery vs Activation Summary
-  + Activation Summmary
+  + Activation Summary
   + Delivery Summary
   + Pending OD (SIM)
   + SIM Activation Report

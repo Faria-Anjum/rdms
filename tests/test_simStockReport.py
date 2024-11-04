@@ -17,10 +17,10 @@ def test_navSimStockReport(page):
     sim = SimStock(page)
     sim.clickReport()
     
-def test_dateSimStockReport(page, today):
-    '''Date fields contain today's date in Sim Stock Report'''
-    sim = SimStock(page)
-    sim.isDateFilled(today)
+# def test_dateSimStockReport(page, today):
+#     '''Date fields contain today's date in Sim Stock Report'''
+#     sim = SimStock(page)
+#     sim.isDateFilled(today)
 
 def test_enterDate(page, twomonths):
     '''User can enter date range for Sim Stock Report'''

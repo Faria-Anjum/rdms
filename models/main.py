@@ -20,7 +20,7 @@ class LoginPage:
         
         expect(self.page.get_by_placeholder("Password")).to_be_visible()
         self.page.get_by_placeholder("Password").click()
-        self.page.get_by_placeholder("Password").fill("Autumn@#922")
+        self.page.get_by_placeholder("Password").fill("Autumn@#923")
         
         expect(self.page.get_by_role("button", name="Sign In")).to_be_visible()
         self.page.get_by_role("button", name="Sign In").click()

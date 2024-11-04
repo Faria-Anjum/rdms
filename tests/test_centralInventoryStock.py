@@ -10,7 +10,7 @@ def test_findCentralInventoryStock(page):
     inventory.findDeviceReports()
     
 def test_navCentralInventoryStock(page):
-    '''User can navigate to Central Inventory Stock Report and select filters'''
+    '''User can navigate to Central Inventory Stock Report'''
     inventory = CentralInventoryStock(page)
     inventory.clickReport()
 

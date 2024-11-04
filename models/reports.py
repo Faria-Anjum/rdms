@@ -82,14 +82,6 @@ class ActivationDetails(Dashboard):
         expect(self.page.get_by_role("main").get_by_text(self.title)).to_be_visible()
         expect(self.page).to_have_url(self.url)
 
-class ActivationSummary(ActivationDetails):
-    def __init__(self, page):
-        self.page = page
-        self.url = "https://stage-dms.robi.com.bd/#/report/activation-report-summary"
-        self.title = "Activation Report (Summary)"
-        self.datefromloc = "input[name=\"activationDateFrom\"]"
-        self.datetoloc = "input[name=\"activationDateTo\"]"
-
 class DeliveryDetails(ActivationDetails):
     def __init__(self, page):
         self.page = page
@@ -97,31 +89,6 @@ class DeliveryDetails(ActivationDetails):
         self.title = "Delivery Report (Details)"
         self.datefromloc = "input[name=\"deliveryFromDate\"]"
         self.datetoloc = "input[name=\"deliveryToDate\"]"
-
-class DeliverySummary(ActivationDetails):
-    def __init__(self, page):
-        self.page = page
-        self.url = "https://stage-dms.robi.com.bd/#/report/delivery-report-summary"
-        self.title = "Delivery Report (Summary)"
-        self.datefromloc = "input[name=\"deliveryFromDate\"]"
-        self.datetoloc = "input[name=\"deliveryToDate\"]"
-
-class DeliveryVsActivation(Dashboard):
-    def __init__(self, page):
-        self.page = page
-        self.url = "https://stage-dms.robi.com.bd/#/report/delivery-vs-activation-summary"
-        self.title = "Delivery vs Activation ("
-        self.datefromloc = "input[name=\"activationDateFrom\"]"
-        self.datetoloc = "input[name=\"activationDateTo\"]"
-        self.seconddatefrom = "input[name=\"deliveryFromDate\"]"
-        self.seconddateto = "input[name=\"deliveryToDate\"]"
-
-    #method overriding, overloading
-    def clickReport(self):
-        expect(self.page.get_by_role("link", name=self.title)).to_be_visible()
-        self.page.get_by_role("link", name=self.title).click()
-        expect(self.page.get_by_role("main").get_by_text("Delivery vs Activation Summary")).to_be_visible()
-        expect(self.page).to_have_url(self.url)
 
 class RealTimeActivation(ActivationDetails):
     def __init__(self, page):
@@ -136,6 +103,79 @@ class RetailerStock(ActivationDetails):
         self.title = "Retailer Stock (Details)"
         self.datefromloc = "input[name=\"liftingFromDate\"]"
         self.datetoloc = "input[name=\"liftingToDate\"]"
+
+class DeliveryVsActivation(Dashboard):
+    def __init__(self, page):
+        self.page = page
+        self.url = "https://stage-dms.robi.com.bd/#/report/delivery-vs-activation-summary"
+        self.title = "Delivery vs Activation ("
+        self.datefromloc = "input[name=\"activationDateFrom\"]"
+        self.datetoloc = "input[name=\"activationDateTo\"]"
+        self.seconddatefrom = "input[name=\"deliveryFromDate\"]"
+        self.seconddateto = "input[name=\"deliveryToDate\"]"
+
+class ActivationSummary(ActivationDetails):
+    def __init__(self, page):
+        self.page = page
+        self.url = "https://stage-dms.robi.com.bd/#/report/activation-report-summary"
+        self.title = "Activation Report (Summary)"
+        self.datefromloc = "input[name=\"activationDateFrom\"]"
+        self.datetoloc = "input[name=\"activationDateTo\"]"
+
+class DeliverySummary(ActivationDetails):
+    def __init__(self, page):
+        self.page = page
+        self.url = "https://stage-dms.robi.com.bd/#/report/delivery-report-summary"
+        self.title = "Delivery Report (Summary)"
+        self.datefromloc = "input[name=\"deliveryFromDate\"]"
+        self.datetoloc = "input[name=\"deliveryToDate\"]"
+
+    #method overriding, overloading
+    def clickReport(self):
+        expect(self.page.get_by_role("link", name=self.title)).to_be_visible()
+        self.page.get_by_role("link", name=self.title).click()
+        expect(self.page.get_by_role("main").get_by_text("Delivery vs Activation Summary")).to_be_visible()
+        expect(self.page).to_have_url(self.url)
+
+class PendingSimODReport(Dashboard):
+    def __init__(self, page):
+        self.page = page
+        self.url = "https://stage-dms.robi.com.bd/#/report/pending/od/sim"
+        self.title = "Pending OD Report(SIM)"
+        self.datefromloc = "input[name=\"registrationFromDate\"]"
+        self.datetoloc = "input[name=\"registrationToDate\"]"
+
+    def clickReport(self):
+        expect(self.page.get_by_role("link", name=self.title)).to_be_visible()
+        self.page.get_by_role("link", name=self.title).click()
+        expect(self.page.get_by_role("main").get_by_text("Pending SIM OD Report")).to_be_visible()
+        expect(self.page).to_have_url(self.url)
+
+class SimActivationReport(ActivationDetails):
+    def __init__(self, page):
+        self.page = page
+        self.url = "https://stage-dms.robi.com.bd/#/report/sim-activation"
+        self.title = "Sim Activation Report"
+
+    def enterDateFromTo(self, today, month):
+        expect(self.page.locator("input[name=\"fromDate\"]")).to_be_visible()
+        self.page.locator("input[name=\"fromDate\"]").fill(month)
+        expect(self.page.locator("input[name=\"toDate\"]")).to_be_visible()
+        self.page.locator("input[name=\"toDate\"]").fill(today)
+
+class PendingSCODReport(Dashboard):
+    def __init__(self, page):
+        self.page = page
+        self.url = "https://stage-dms.robi.com.bd/#/report/pending/od/sc"
+        self.title = "Pending OD Report(SC)"
+        self.datefromloc = "input[name=\"registrationFromDate\"]"
+        self.datetoloc = "input[name=\"registrationToDate\"]"
+
+    def clickReport(self):
+        expect(self.page.get_by_role("link", name=self.title)).to_be_visible()
+        self.page.get_by_role("link", name=self.title).click()
+        expect(self.page.get_by_role("main").get_by_text("Pending SC OD Report")).to_be_visible()
+        expect(self.page).to_have_url(self.url)
 
 class NoActivatedMsisdn(Dashboard):
     def __init__(self, page):
@@ -162,51 +202,23 @@ class LiftingVsActivation(Dashboard):
         expect(self.page.get_by_role("main").get_by_text("Lifting vs Activation (Summary)")).to_be_visible()
         expect(self.page).to_have_url(self.url)
 
-class PendingSimODReport(Dashboard):
-    def __init__(self, page):
-        self.page = page
-        self.url = "https://stage-dms.robi.com.bd/#/report/pending/od/sim"
-        self.title = "Pending OD Report(SIM)"
-        self.datefromloc = "input[name=\"registrationFromDate\"]"
-        self.datetoloc = "input[name=\"registrationToDate\"]"
-
-    def clickReport(self):
-        expect(self.page.get_by_role("link", name=self.title)).to_be_visible()
-        self.page.get_by_role("link", name=self.title).click()
-        expect(self.page.get_by_role("main").get_by_text("Pending SIM OD Report")).to_be_visible()
-        expect(self.page).to_have_url(self.url)
-
-class PendingSCODReport(Dashboard):
-    def __init__(self, page):
-        self.page = page
-        self.url = "https://stage-dms.robi.com.bd/#/report/pending/od/sc"
-        self.title = "Pending OD Report(SC)"
-        self.datefromloc = "input[name=\"registrationFromDate\"]"
-        self.datetoloc = "input[name=\"registrationToDate\"]"
-
-    def clickReport(self):
-        expect(self.page.get_by_role("link", name=self.title)).to_be_visible()
-        self.page.get_by_role("link", name=self.title).click()
-        expect(self.page.get_by_role("main").get_by_text("Pending SC OD Report")).to_be_visible()
-        expect(self.page).to_have_url(self.url)
-
-class SimActivationReport(ActivationDetails):
-    def __init__(self, page):
-        self.page = page
-        self.url = "https://stage-dms.robi.com.bd/#/report/sim-activation"
-        self.title = "Sim Activation Report"
-
-    def enterDateFromTo(self, today, month):
-        expect(self.page.locator("input[name=\"fromDate\"]")).to_be_visible()
-        self.page.locator("input[name=\"fromDate\"]").fill(month)
-        expect(self.page.locator("input[name=\"toDate\"]")).to_be_visible()
-        self.page.locator("input[name=\"toDate\"]").fill(today)
-
 class SalesCallDSR(SimActivationReport):
     def __init__(self, page):
         self.page = page
         self.url = "https://stage-dms.robi.com.bd/#/report/sales-call-by-dsr"
         self.title = "Sales Call (By DSR)"
+
+    def clickReport(self):
+        expect(self.page.get_by_role("link", name=self.title)).to_be_visible()
+        self.page.get_by_role("link", name=self.title).click()
+        expect(self.page.get_by_role("main").get_by_text("Sales Call Report "+self.title[11:])).to_be_visible()
+        expect(self.page).to_have_url(self.url)
+
+class SalesCallRetailer(SimActivationReport):
+    def __init__(self, page):
+        self.page = page
+        self.url = "https://stage-dms.robi.com.bd/#/report/sales-call-by-retailer"
+        self.title = "Sales Call (By Retailer)"
 
     def clickReport(self):
         expect(self.page.get_by_role("link", name=self.title)).to_be_visible()
@@ -252,3 +264,9 @@ class BPPerformance(Dashboard):
         self.title = "BP Performance"
         self.datefromloc = "input[name=\"activationDateFrom\"]"
         self.datetoloc = "input[name=\"activationDateTo\"]"
+
+class BPTaggedList(ActivationDetails):
+    def __init__(self, page):
+        self.page = page
+        self.url = "https://stage-dms.robi.com.bd/#/report/bp-tagged-list"
+        self.title = "BP Tagged List (Assist Code)"

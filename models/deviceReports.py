@@ -2,8 +2,7 @@ from playwright.sync_api import expect
 from models.main import Dashboard
 from models.reports import ActivationDetails, SimActivationReport
 #ActivationDetails for clickReport pointing to own name
-#SimActivationReport for date fields fromDate toDate
-
+#SimActivationReport for Date Range
 
 class RCPendingDeviceOD(SimActivationReport):
     def __init__(self, page):
@@ -36,28 +35,30 @@ class FaultyDevice(SimActivationReport):
     def clickReport(self):
         return Dashboard.clickReport(self)
     
-class IndividualDeviceTransactionHistory(SimActivationReport):
+class IndividualDeviceTransactionHistory(Dashboard):
     def __init__(self, page):
         self.page = page
         self.url = "https://stage-dms.robi.com.bd/#/report/individual-device-transaction-history"
-        self.title = "Individual Device Transaction History"
+        self.title = "Individual Device Transaction"
 
     def clickReport(self):
-        return Dashboard.clickReport(self)
+        expect(self.page.get_by_role("link", name=self.title)).to_be_visible()
+        self.page.get_by_role("link", name=self.title).click()
+        expect(self.page.get_by_text("Individual Device Transactional History Report")).to_be_visible()
     
     def fillTextbox(self):
         self.page.get_by_role("textbox").click()
         self.page.get_by_role("textbox").fill("353664620337838")
-    
 
-    # page.get_by_text("SerialNumber / MSISDNType *Serial NumberMSISDNIs Live ?Bulk Search File Upload").click(button="right")
-    # page.goto("https://stage-dms.robi.com.bd/#/report/device-transaction")
-    # page.goto("https://stage-dms.robi.com.bd/#/report/individual-device-transaction")
-    # page.goto("https://stage-dms.robi.com.bd/#/report/individual-device-transaction-history")
-    # page.get_by_role("textbox").click()
-    # page.get_by_role("textbox").fill("353664620337838")
-    # page.get_by_role("button", name="View Report").click()
-    # page.get_by_text("×Close").click()
+class IndividualDeviceHistory(Dashboard):
+    def __init__(self, page):
+        self.page = page
+        self.url = "https://stage-dms.robi.com.bd/#/report/individual-device-history"
+        self.title = "Individual Device History"
+    
+    def fillTextbox(self):
+        self.page.locator("input[name=\"imei\"]").click()
+        self.page.locator("input[name=\"imei\"]").fill("353664620337838")
     
 class DeviceTransaction(SimActivationReport):
     def __init__(self, page):
@@ -104,4 +105,3 @@ class DeviceRegistrationReport(ActivationDetails):
         self.title = "Device Registration Report"
         # self.datefromloc = "input[name=\"regFromDate\"]"
         # self.datetoloc = "input[name=\"regToDate\"]"
-    

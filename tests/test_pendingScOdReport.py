@@ -11,7 +11,7 @@ def test_findPendingSCODReport(page):
     od.findReport()
     
 def test_navPendingSCODReport(page):
-    '''User can navigate to Pending SC OD report and select filters'''
+    '''User can navigate to Pending SC OD Report and select filters'''
     od = PendingSCODReport(page)
     od.clickReport()
 

@@ -11,7 +11,7 @@ def test_findPendingSimODReport(page):
     od.findReport()
     
 def test_navPendingSimODReport(page):
-    '''User can navigate to Pending Sim OD report and select filters'''
+    '''User can navigate to Pending Sim OD Report and select filters'''
     od = PendingSimODReport(page)
     od.clickReport()
 

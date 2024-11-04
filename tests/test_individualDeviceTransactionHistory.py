@@ -10,7 +10,7 @@ def test_findIndividualDeviceTransaction(page):
     indivdevicetransac.findDeviceReports()
     
 def test_navIndividualDeviceTransaction(page):
-    '''User can navigate to Individual Device Transaction History Report and select filters'''
+    '''User can navigate to Individual Device Transaction History Report'''
     indivdevicetransac = IndividualDeviceTransactionHistory(page)
     indivdevicetransac.clickReport()
 

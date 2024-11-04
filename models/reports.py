@@ -114,6 +114,13 @@ class DeliveryVsActivation(Dashboard):
         self.seconddatefrom = "input[name=\"deliveryFromDate\"]"
         self.seconddateto = "input[name=\"deliveryToDate\"]"
 
+    #method overriding, overloading
+    def clickReport(self):
+        expect(self.page.get_by_role("link", name=self.title)).to_be_visible()
+        self.page.get_by_role("link", name=self.title).click()
+        expect(self.page.get_by_role("main").get_by_text("Delivery vs Activation Summary")).to_be_visible()
+        expect(self.page).to_have_url(self.url)
+
 class ActivationSummary(ActivationDetails):
     def __init__(self, page):
         self.page = page
@@ -129,13 +136,6 @@ class DeliverySummary(ActivationDetails):
         self.title = "Delivery Report (Summary)"
         self.datefromloc = "input[name=\"deliveryFromDate\"]"
         self.datetoloc = "input[name=\"deliveryToDate\"]"
-
-    #method overriding, overloading
-    def clickReport(self):
-        expect(self.page.get_by_role("link", name=self.title)).to_be_visible()
-        self.page.get_by_role("link", name=self.title).click()
-        expect(self.page.get_by_role("main").get_by_text("Delivery vs Activation Summary")).to_be_visible()
-        expect(self.page).to_have_url(self.url)
 
 class PendingSimODReport(Dashboard):
     def __init__(self, page):

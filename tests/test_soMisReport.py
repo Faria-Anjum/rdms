@@ -16,7 +16,7 @@ def test_findSoMisReport(page):
     so.findReport()
 
 def test_navSoMisReport(page):
-    '''User can navigate to SO MIS report and select filters'''
+    '''User can navigate to SO MIS Report and select filters'''
     so = SoMisReport(page)
     so.clickSoReport()
     

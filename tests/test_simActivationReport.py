@@ -11,7 +11,7 @@ def test_findSimActivationReport(page):
     simactiv.findReport()
     
 def test_navSimActivationReport(page):
-    '''User can navigate to Sim Activation Report and select filters'''
+    '''User can navigate to Sim Activation Report'''
     simactiv = SimActivationReport(page)
     simactiv.clickReport()
 

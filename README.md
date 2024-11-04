@@ -5,7 +5,8 @@
   + SO MIS Report
   + SIM Stock
   + SC SIM Stock
-  + Individual SIM history
+  + Individual SIM History
+  + Individual SIM History (Old)
   + Activation Report
   + Delivery Report
   + Real-time Activation Report
@@ -19,10 +20,12 @@
   + No Activated MSISDN
   + Lifting vs Activation
   + Sales Call (DSR)
+  + Sales Call (Retailer)
   + Sales Call (Transaction)
   + Market Visit Plan
   + Market Visit (Routewise)
   + BP Performance
+  + BP Tagged List
 
 #### Master Data Reports:
   + User Management
@@ -37,6 +40,8 @@
   + RC Pending Device OD
   + Pending Device OD
   + Faulty Device
+  + Individual Device History
+  + Individual Device Transaction History
   + Device Transaction
   + Device Lifetime Tracking
   + Device Status

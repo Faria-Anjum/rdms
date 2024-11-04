@@ -13,7 +13,7 @@ def test_findActivationReport(page):
     activ.findReport()
     
 def test_navActivationReport(page):
-    '''User can navigate to Activation Summary report and select filters'''
+    '''User can navigate to Activation Summary Report and select filters'''
     activ = ActivationSummary(page)
     activ.clickReport()
 

@@ -16,7 +16,7 @@ def test_findSoPaymentReport(page):
     so.findReport()
 
 def test_navSoPaymentReport(page):
-    '''User can navigate to SO Payment report and select filters'''
+    '''User can navigate to SO Payment Report and select filters'''
     so = SoPayment(page)
     so.clickSoReport()
     

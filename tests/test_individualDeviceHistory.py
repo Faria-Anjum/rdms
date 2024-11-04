@@ -10,7 +10,7 @@ def test_findIndividualDeviceHistory(page):
     indivdevicehistory.findDeviceReports()
     
 def test_navIndividualDeviceHistory(page):
-    '''User can navigate to Individual Device History Report and select filters'''
+    '''User can navigate to Individual Device History Report'''
     indivdevicehistory = IndividualDeviceHistory(page)
     indivdevicehistory.clickReport()
 

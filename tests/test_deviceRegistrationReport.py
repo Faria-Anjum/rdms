@@ -15,7 +15,7 @@ def test_navDeviceRegistrationReport(page):
     devicereg.clickReport()
 
 def test_viewDeviceRegistrationReport(page):
-    '''User can click to view Device Registration Report Report'''
+    '''User can click to view Device Registration Report'''
     devicereg = DeviceRegistrationReport(page)
     devicereg.viewReport()
 

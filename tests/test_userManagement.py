@@ -10,7 +10,7 @@ def test_findUserManagement(page):
     user.findMasterDataReport()
     
 def test_navUserManagement(page):
-    '''User can navigate to User Management report and select filters'''
+    '''User can navigate to User Management Report and select filters'''
     user = UserManagement(page)
     user.clickReport()
     

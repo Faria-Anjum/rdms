@@ -81,6 +81,7 @@ class Dashboard():
 
     def noDataFound(self):
         expect(self.page.get_by_text("No data found")).to_be_visible()
+        self.page.get_by_label("close").click()
 
     def closeReport(self):
         self.page.get_by_text("×Close").click()

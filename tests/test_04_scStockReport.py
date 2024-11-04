@@ -2,17 +2,6 @@ from models.main import LoginPage
 from models.reports import ScStock
 import pytest
 
-def test_findScStockReport(page):
-    # context = browser.new_context(storage_state='auth.json')
-    # page = context.new_page()
-
-    '''User can view SC Stock Report tab'''
-    sc = ScStock(page)
-    login = LoginPage(page)
-    login.navigate()
-    login.loginCreds()
-    sc.findReport()
-
 def test_navScStockReport(page):
     '''User can navigate to SC Stock report and select filters'''
     sc = ScStock(page)

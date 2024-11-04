@@ -1,13 +1,5 @@
 from models.main import LoginPage
 from models.reports import IndividualSimHistoryOld
-
-def test_findIndividualSimHistoryOld(page):
-    '''User can navigate to Individual Sim History (Old) Report'''
-    indivhistoryold = IndividualSimHistoryOld(page)
-    login = LoginPage(page)
-    login.navigate()
-    login.loginCreds()
-    indivhistoryold.findReport()
     
 def test_navIndividualSimHistoryOld(page):
     '''User can navigate to Individual Sim History (Old) Report'''

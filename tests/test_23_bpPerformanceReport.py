@@ -1,14 +1,5 @@
 from models.main import LoginPage
 from models.reports import BPPerformance
-
-def test_findBpPerformanceReport(page):
-
-    '''User can navigate to BP Performance Report'''
-    bpperform = BPPerformance(page)
-    login = LoginPage(page)
-    login.navigate()
-    login.loginCreds()
-    bpperform.findReport()
     
 def test_navBpPerformanceReport(page):
     '''User can navigate to BP Performance Report and select filters'''

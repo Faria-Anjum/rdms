@@ -1,16 +1,5 @@
 from models.main import LoginPage
 from models.reports import ActivationDetails
-
-def test_findActivationReport(page):
-    # context = browser.new_context(storage_state='auth.json')
-    # page = context.new_page()
-
-    '''User can navigate to Activation Details Report'''
-    activ = ActivationDetails(page)
-    login = LoginPage(page)
-    login.navigate()
-    login.loginCreds()
-    activ.findReport()
     
 def test_navActivationReport(page):
     '''User can navigate to Activation Details Report and select filters'''

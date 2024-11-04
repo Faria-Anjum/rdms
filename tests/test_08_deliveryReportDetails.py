@@ -1,13 +1,5 @@
 from models.main import LoginPage
 from models.reports import DeliveryDetails
-
-def test_findDeliveryReport(page):
-    '''User can navigate to Delivery Report Details'''
-    delivery = DeliveryDetails(page)
-    login = LoginPage(page)
-    login.navigate()
-    login.loginCreds()
-    delivery.findReport()
     
 def test_navDeliveryReport(page):
     '''User can navigate to Delivery Report Details and select filters'''

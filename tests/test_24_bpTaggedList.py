@@ -1,14 +1,5 @@
 from models.main import LoginPage
 from models.reports import BPTaggedList
-
-def test_findBpTaggedList(page):
-
-    '''User can navigate to BP Tagged List'''
-    bptagged = BPTaggedList(page)
-    login = LoginPage(page)
-    login.navigate()
-    login.loginCreds()
-    bptagged.findReport()
     
 def test_navBpTaggedList(page):
     '''User can navigate to BP Tagged List and select filters'''

@@ -3,7 +3,7 @@ from datetime import datetime
 import os
 
 #all test functions in a test file run on the same browser context
-@pytest.fixture(scope="module")
+@pytest.fixture(scope="session")
 def page(browser):
     page = browser.new_page()
     return page

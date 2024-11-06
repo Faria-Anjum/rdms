@@ -1,13 +1,5 @@
 from models.main import LoginPage
 from models.reports import RealTimeActivation
-
-def test_findRealTimeActivationReport(page):
-    '''User can navigate to Real Time Activation Report Details'''
-    realtime = RealTimeActivation(page)
-    login = LoginPage(page)
-    login.navigate()
-    login.loginCreds()
-    realtime.findReport()
     
 def test_navRealTimeActivationReport(page):
     '''User can navigate to Real Time Activation Report Details and select filters'''

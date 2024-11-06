@@ -4,7 +4,6 @@ from models.reports import SimStock
 def test_navSimStockReport(page):
     '''User can navigate to Sim Stock report and select filters'''
     sim = SimStock(page)
-    sim.findReport()
     sim.clickReport()
     
 # def test_dateSimStockReport(page, today):

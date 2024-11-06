@@ -4,20 +4,10 @@ import pytest
 
 xfail = pytest.mark.xfail
 
-def test_findSoPaymentReport(page):
-    # context = browser.new_context(storage_state='auth.json')
-    # page = context.new_page()
-
-    '''User can view SO Payment Report tab'''
-    so = SoPayment(page)
-    login = LoginPage(page)
-    login.navigate()
-    login.loginCreds()
-    so.findReport()
-
 def test_navSoPaymentReport(page):
     '''User can navigate to SO Payment Report and select filters'''
     so = SoPayment(page)
+    so.findReport()
     so.clickSoReport()
     
 # def test_dateSoPaymentReport(page, today):

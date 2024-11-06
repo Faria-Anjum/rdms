@@ -4,17 +4,6 @@ import pytest
 
 xfail = pytest.mark.xfail
 
-def test_findSoMisReport(page):
-    # context = browser.new_context(storage_state='auth.json')
-    # page = context.new_page()
-
-    '''User can view SO MIS Report tab'''
-    so = SoMisReport(page)
-    login = LoginPage(page)
-    login.navigate()
-    login.loginCreds()
-    so.findReport()
-
 def test_navSoMisReport(page):
     '''User can navigate to SO MIS Report and select filters'''
     so = SoMisReport(page)

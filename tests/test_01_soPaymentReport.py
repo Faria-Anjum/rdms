@@ -25,7 +25,7 @@ def test_viewSoPaymentReport(page):
     so = SoPayment(page)
     so.viewReport()
     
-@xfail
+#@xfail
 def test_noSoPaymentReport(page):
     '''User receives "No Data Found" error'''
     so = SoPayment(page)

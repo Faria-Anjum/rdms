@@ -24,7 +24,7 @@ def test_viewSoMisReport(page):
     so = SoMisReport(page)
     so.viewReport()
     
-@xfail
+#@xfail
 def test_noSoMisReport(page):
     '''User receives "No Data Found" error'''
     so = SoMisReport(page)

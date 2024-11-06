@@ -13,6 +13,9 @@ class SoPayment(Dashboard):
         self.page.get_by_role("link", name=self.title).click()
         expect(self.page.get_by_text("Sales Order"+self.title[2:])).to_be_visible()
 
+    def noDataFound(self):
+        self.page.locator("div").filter(has_text="No data found").nth(3).click()
+
 class SoMisReport(SoPayment):
     def __init__(self, page):
         self.page = page

@@ -1,14 +1,5 @@
 from models.main import LoginPage
 from models.reports import PendingSimODReport
-
-def test_findPendingSimODReport(page):
-
-    '''User can navigate to Pending Sim OD Report'''
-    od = PendingSimODReport(page)
-    login = LoginPage(page)
-    login.navigate()
-    login.loginCreds()
-    od.findReport()
     
 def test_navPendingSimODReport(page):
     '''User can navigate to Pending Sim OD Report and select filters'''

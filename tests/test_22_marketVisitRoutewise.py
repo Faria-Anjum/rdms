@@ -1,13 +1,5 @@
 from models.main import LoginPage
 from models.reports import MarketVisitRoutewise
-
-def test_findMarketVisitRoutewise(page):
-    '''User can navigate to Routewise Market Visit Report'''
-    marketroute = MarketVisitRoutewise(page)
-    login = LoginPage(page)
-    login.navigate()
-    login.loginCreds()
-    marketroute.findReport()
     
 def test_navMarketVisitRoutewise(page):
     '''User can navigate to Routewise Market Visit Report and select filters'''

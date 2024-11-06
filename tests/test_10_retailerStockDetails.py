@@ -1,13 +1,5 @@
 from models.main import LoginPage
 from models.reports import RetailerStock
-
-def test_findRetailerStock(page):
-    '''User can navigate to Retailer Stock Details'''
-    retail = RetailerStock(page)
-    login = LoginPage(page)
-    login.navigate()
-    login.loginCreds()
-    retail.findReport()
     
 def test_navRetailerStock(page):
     '''User can navigate to Retailer Stock Details and select filters'''

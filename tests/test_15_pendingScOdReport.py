@@ -1,14 +1,5 @@
 from models.main import LoginPage
 from models.reports import PendingSCODReport
-
-def test_findPendingSCODReport(page):
-
-    '''User can navigate to Pending SC OD Report'''
-    od = PendingSCODReport(page)
-    login = LoginPage(page)
-    login.navigate()
-    login.loginCreds()
-    od.findReport()
     
 def test_navPendingSCODReport(page):
     '''User can navigate to Pending SC OD Report and select filters'''

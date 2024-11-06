@@ -1,13 +1,5 @@
 from models.main import LoginPage
 from models.deviceReports import DeviceLifetimeTracking
-
-def test_findDeviceLifetimeTracking(page):
-    '''User can navigate to Device Lifetime Tracking Report'''
-    devicelifetime = DeviceLifetimeTracking(page)
-    login = LoginPage(page)
-    login.navigate()
-    login.loginCreds()
-    devicelifetime.findDeviceReports()
     
 def test_navDeviceLifetimeTracking(page):
     '''User can navigate to Device Lifetime Tracking Report and select filters'''

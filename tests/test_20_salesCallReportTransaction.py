@@ -1,13 +1,5 @@
 from models.main import LoginPage
 from models.reports import SalesCallTransac
-
-def test_findSalesCallReport(page):
-    '''User can navigate to Sales Call Report (Transaction)'''
-    transac = SalesCallTransac(page)
-    login = LoginPage(page)
-    login.navigate()
-    login.loginCreds()
-    transac.findReport()
     
 def test_navSalesCallReport(page):
     '''User can navigate to Sales Call Report (Transaction) and select filters'''

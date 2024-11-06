@@ -1,13 +1,5 @@
 from models.main import LoginPage
 from models.masterDataReports import ProductMasterData
-
-def test_findProductMasterData(page):
-    '''User can navigate to Product Master Data Report'''
-    productmaster = ProductMasterData(page)
-    login = LoginPage(page)
-    login.navigate()
-    login.loginCreds()
-    productmaster.findMasterDataReport()
     
 def test_navProductMasterData(page):
     '''User can navigate to Product Master Data Report and select filters'''

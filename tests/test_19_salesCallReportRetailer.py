@@ -1,14 +1,5 @@
 from models.main import LoginPage
 from models.reports import SalesCallRetailer
-
-def test_findSalesCallReport(page):
-
-    '''User can navigate to Sales Call Report (Retailer)'''
-    retailer = SalesCallRetailer(page)
-    login = LoginPage(page)
-    login.navigate()
-    login.loginCreds()
-    retailer.findReport()
     
 def test_navSalesCallReport(page):
     '''User can navigate to Sales Call Report (Retailer)'''

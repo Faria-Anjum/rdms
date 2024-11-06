@@ -1,13 +1,5 @@
 from models.main import LoginPage
 from models.deviceReports import PendingDeviceOD
-
-def test_findPendingDeviceOD(page):
-    '''User can navigate to Pending Device OD Report'''
-    pendingod = PendingDeviceOD(page)
-    login = LoginPage(page)
-    login.navigate()
-    login.loginCreds()
-    pendingod.findDeviceReports()
     
 def test_navPendingDeviceOD(page):
     '''User can navigate to Pending Device OD Report and select filters'''

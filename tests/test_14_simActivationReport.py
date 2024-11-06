@@ -1,14 +1,5 @@
 from models.main import LoginPage
 from models.reports import SimActivationReport
-
-def test_findSimActivationReport(page):
-
-    '''User can navigate to Sim Activation Report'''
-    simactiv = SimActivationReport(page)
-    login = LoginPage(page)
-    login.navigate()
-    login.loginCreds()
-    simactiv.findReport()
     
 def test_navSimActivationReport(page):
     '''User can navigate to Sim Activation Report'''

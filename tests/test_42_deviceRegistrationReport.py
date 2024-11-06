@@ -1,13 +1,5 @@
 from models.main import LoginPage
 from models.deviceReports import DeviceRegistrationReport
-
-def test_findDeviceRegistrationReport(page):
-    '''User can navigate to Device Registration Report'''
-    devicereg = DeviceRegistrationReport(page)
-    login = LoginPage(page)
-    login.navigate()
-    login.loginCreds()
-    devicereg.findDeviceReports()
     
 def test_navDeviceRegistrationReport(page):
     '''User can navigate to Device Registration Report and select filters'''

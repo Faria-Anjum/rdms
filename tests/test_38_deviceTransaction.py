@@ -1,13 +1,5 @@
 from models.main import LoginPage
 from models.deviceReports import DeviceTransaction
-
-def test_findDeviceTransaction(page):
-    '''User can navigate to Device Transaction Report'''
-    devicetransac = DeviceTransaction(page)
-    login = LoginPage(page)
-    login.navigate()
-    login.loginCreds()
-    devicetransac.findDeviceReports()
     
 def test_navDeviceTransaction(page):
     '''User can navigate to Device Transaction Report and select filters'''

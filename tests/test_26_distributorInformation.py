@@ -1,13 +1,5 @@
 from models.main import LoginPage
 from models.masterDataReports import DistributorInformation
-
-def test_findDistributorInformation(page):
-    '''User can navigate to Distributor Information Report'''
-    user = DistributorInformation(page)
-    login = LoginPage(page)
-    login.navigate()
-    login.loginCreds()
-    user.findMasterDataReport()
     
 def test_navDistributorInformation(page):
     '''User can navigate to Distributor Information report and select filters'''

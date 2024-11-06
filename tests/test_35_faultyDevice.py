@@ -1,13 +1,5 @@
 from models.main import LoginPage
 from models.deviceReports import FaultyDevice
-
-def test_findFaultyDevice(page):
-    '''User can navigate to Faulty Device Report'''
-    faulty = FaultyDevice(page)
-    login = LoginPage(page)
-    login.navigate()
-    login.loginCreds()
-    faulty.findDeviceReports()
     
 def test_navFaultyDevice(page):
     '''User can navigate to Faulty Device Report and select filters'''

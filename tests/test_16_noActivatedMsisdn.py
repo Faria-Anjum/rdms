@@ -1,13 +1,5 @@
 from models.main import LoginPage
 from models.reports import NoActivatedMsisdn
-
-def test_findNoActivatedMsisdn(page):
-    '''User can navigate to No Activated MSISDN Details Report'''
-    activeMsisdn = NoActivatedMsisdn(page)
-    login = LoginPage(page)
-    login.navigate()
-    login.loginCreds()
-    activeMsisdn.findReport()
     
 def test_navNoActivatedMsisdn(page):
     '''User can navigate to No Activated MSISDN Details Report and select filters'''

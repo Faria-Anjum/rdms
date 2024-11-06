@@ -1,17 +1,10 @@
 from models.main import LoginPage
 from models.deviceReports import RCPendingDeviceOD
-
-def test_findRCPendingDeviceOD(page):
-    '''User can navigate to RC Pending Device OD Report'''
-    rcpendingod = RCPendingDeviceOD(page)
-    login = LoginPage(page)
-    login.navigate()
-    login.loginCreds()
-    rcpendingod.findDeviceReports()
     
 def test_navRCPendingDeviceOD(page):
     '''User can navigate to RC Pending Device OD Report and select filters'''
     rcpendingod = RCPendingDeviceOD(page)
+    rcpendingod.findDeviceReports()
     rcpendingod.clickReport()
     
 def test_enterDate(page, twoyears):

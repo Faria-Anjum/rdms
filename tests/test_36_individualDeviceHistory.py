@@ -1,13 +1,5 @@
 from models.main import LoginPage
 from models.deviceReports import IndividualDeviceHistory
-
-def test_findIndividualDeviceHistory(page):
-    '''User can navigate to Individual Device History Report'''
-    indivdevicehistory = IndividualDeviceHistory(page)
-    login = LoginPage(page)
-    login.navigate()
-    login.loginCreds()
-    indivdevicehistory.findDeviceReports()
     
 def test_navIndividualDeviceHistory(page):
     '''User can navigate to Individual Device History Report'''

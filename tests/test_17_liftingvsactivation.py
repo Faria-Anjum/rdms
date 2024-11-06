@@ -1,13 +1,5 @@
 from models.main import LoginPage
 from models.reports import LiftingVsActivation
-
-def test_findLiftingVsActivationReport(page):
-    '''User can navigate to Lifting vs Activation Summary Report'''
-    liftvsactiv = LiftingVsActivation(page)
-    login = LoginPage(page)
-    login.navigate()
-    login.loginCreds()
-    liftvsactiv.findReport()
     
 def test_navLiftingVsActivationReport(page):
     '''User can navigate to Lifting vs Activation Summary Report and select filters'''

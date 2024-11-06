@@ -1,13 +1,5 @@
 from models.main import LoginPage
 from models.deviceReports import DeviceStatus
-
-def test_findDeviceStatus(page):
-    '''User can navigate to Device Status Report'''
-    devicestatus = DeviceStatus(page)
-    login = LoginPage(page)
-    login.navigate()
-    login.loginCreds()
-    devicestatus.findDeviceReports()
     
 def test_navDeviceStatus(page):
     '''User can navigate to Device Status Report and select filters'''

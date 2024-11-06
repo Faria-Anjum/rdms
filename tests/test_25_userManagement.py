@@ -1,17 +1,10 @@
 from models.main import LoginPage
 from models.masterDataReports import UserManagement
-
-def test_findUserManagement(page):
-    '''User can navigate to User Management Report'''
-    user = UserManagement(page)
-    login = LoginPage(page)
-    login.navigate()
-    login.loginCreds()
-    user.findMasterDataReport()
     
 def test_navUserManagement(page):
     '''User can navigate to User Management Report and select filters'''
     user = UserManagement(page)
+    user.findMasterDataReport()
     user.clickReport()
     
 def test_viewUserManagement(page):

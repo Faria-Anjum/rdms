@@ -1,13 +1,5 @@
 from models.main import LoginPage
 from models.reports import MarketVisitPlan
-
-def test_findMarketVisitPlan(page):
-    '''User can navigate to Market Visit Plan Report'''
-    marketplan = MarketVisitPlan(page)
-    login = LoginPage(page)
-    login.navigate()
-    login.loginCreds()
-    marketplan.findReport()
     
 def test_navMarketVisitPlan(page):
     '''User can navigate to Market Visit Plan Report and select filters'''

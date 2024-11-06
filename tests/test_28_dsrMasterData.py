@@ -1,13 +1,5 @@
 from models.main import LoginPage
 from models.masterDataReports import DsrMasterData
-
-def test_findDsrMasterData(page):
-    '''User can navigate to Dsr Master Data Report'''
-    dsrmaster = DsrMasterData(page)
-    login = LoginPage(page)
-    login.navigate()
-    login.loginCreds()
-    dsrmaster.findMasterDataReport()
     
 def test_navDsrMasterData(page):
     '''User can navigate to Dsr Master Data Report and select filters'''

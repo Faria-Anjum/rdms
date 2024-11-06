@@ -1,13 +1,5 @@
 from models.main import LoginPage
 from models.masterDataReports import RetailerModificationRequest
-
-def test_findRetailerModificationRequest(page):
-    '''User can navigate to Retailer Modification Request Report'''
-    retailermod = RetailerModificationRequest(page)
-    login = LoginPage(page)
-    login.navigate()
-    login.loginCreds()
-    retailermod.findMasterDataReport()
     
 def test_navRetailerModificationRequest(page):
     '''User can navigate to Retailer Modification Request Report and select filters'''

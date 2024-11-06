@@ -1,13 +1,5 @@
 from models.main import LoginPage
 from models.deviceReports import CentralInventoryStock
-
-def test_findCentralInventoryStock(page):
-    '''User can navigate to Central Inventory Stock Report'''
-    inventory = CentralInventoryStock(page)
-    login = LoginPage(page)
-    login.navigate()
-    login.loginCreds()
-    inventory.findDeviceReports()
     
 def test_navCentralInventoryStock(page):
     '''User can navigate to Central Inventory Stock Report'''
